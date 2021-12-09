@@ -8,33 +8,39 @@ import android.view.ViewParent
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.chaewonnolja.R
 import com.example.chaewonnolja.item.RestItem
 
-class RestViewAdapter(val context: Context, private val RestItemList: ArrayList<RestItem>) {
+class RestViewAdapter(private val context: Context) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
 
-    inner class ViewHolder(view: View?) : RecyclerView.ViewHolder(view!!){
+    var datas = mutableListOf<RestItem>()
 
-        val restImage= view?.findViewById<ImageView>(R.id.restImage)
-        val restName= view?.findViewById<TextView>(R.id.restName)
-        val restCategory= view?.findViewById<TextView>(R.id.restCategory)
-
-        //바인딩 할 곳
-        fun bind(rest: RestItem, context: Context){
-            restImage.setImageDrawable()    //image소스
-            restName?.text=rest.restName
-            restCategory?.text=rest.restCategory
-        }
-
-        fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val view = LayoutInflater.from(context).inflate(R.layout.item_rest_view, parent, false)
-            //바인딩 당할 Item XML 파일명 지정 --R.layout.item_rest_view
-            return ViewHolder(view)
-        }
-        fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            //데이터를 순서대로 바인딩 --포지션(인덱스)값을 활용 가능. 현재는 모든 값 바인딩
-            holder.bind(RestItemList[position], context)
-        }
-
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.item_rest_view,parent,false)
+        return ViewHolder(view)
     }
+
+    override fun getItemCount(): Int = datas.size
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(datas[position])
+    }
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        private val restImage: ImageView = itemView.findViewById(R.id.restImage)
+        private val restCategory: TextView = itemView.findViewById(R.id.restCategory)
+        private val restName: TextView = itemView.findViewById(R.id.restName)
+
+        fun bind(item: RestItem) {
+            restName.text = item.restName
+            restCategory.text = item.restCategory
+
+            //bulid.gradle 에 Glide 라이브러리 추가
+            Glide.with(itemView).load(item.restImage).into(restImage)
+        }
+    }
+
+
 }
