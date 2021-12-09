@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnRest.setOnClickListener {
+            // view 에 불러오는 fragment 설정
             supportFragmentManager.beginTransaction()
                 .replace(R.id.view, RestFragment())
                 .commit()

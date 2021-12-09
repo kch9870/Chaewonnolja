@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/activity_signup.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/fragment_blank.xml" value="0.3515625" />
         <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/fragment_reserve.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/fragment_rest.xml" value="0.2046875" />
         <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/fragment_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/kch98/Android_projects/Chaewonnolja/app/src/main/res/layout/rest_view_item.xml" value="0.2046875" />
       </map>
     </option>
   </component>
