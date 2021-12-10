@@ -15,6 +15,5 @@ class RestFragment : Fragment() {
 
         return inflater.inflate(R.layout.fragment_rest, container, false)
     }
-
     //RecyclerView 불러오기
 }
