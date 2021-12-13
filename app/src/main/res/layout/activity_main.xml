@@ -20,7 +20,7 @@
 
         <Button
             android:id="@+id/btnRest"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="3dp"
@@ -29,7 +29,7 @@
 
         <Button
             android:id="@+id/btnSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="3dp"
@@ -38,7 +38,7 @@
 
         <Button
             android:id="@+id/btnReserve"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="3dp"

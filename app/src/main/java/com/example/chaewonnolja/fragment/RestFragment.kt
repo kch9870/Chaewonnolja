@@ -23,24 +23,30 @@ class RestFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_rest, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initRecycler()
     }
 
     //RecyclerView 불러오기
-/*
     fun initRecycler() {
-        restViewAdapter = RestViewAdapter(this)
+        restViewAdapter = activity?.let { RestViewAdapter(it) }!!
         rv_rest.adapter = restViewAdapter
 
-
+        //데이터 값 넣어보기 대충
         datas.apply {
-            add(RestItem(restImage = R.drawable.rest, restName = "mary", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
 
             restViewAdapter.datas = datas
             restViewAdapter.notifyDataSetChanged()
 
         }
-    }*/
+    }
 }
