@@ -1,18 +1,19 @@
 package com.example.chaewonnolja.adaptor
 
+import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewParent
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chaewonnolja.R
+import com.example.chaewonnolja.fragment.RestFragment
 import com.example.chaewonnolja.item.RestItem
 
-class RestViewAdapter(private val context: Context) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
+class RestViewAdapter( val context: Context) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
 
     var datas = mutableListOf<RestItem>()
 

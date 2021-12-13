@@ -16,8 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:text="<-(뒤로가기)"
-            android:textSize="25dp"/>
+            android:textSize="25dp">
+
+        </TextView>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,7 +31,9 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:text="지역 (시)"
-            android:textSize="25dp"/>
+            android:textSize="25dp">
+
+        </TextView>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,13 +57,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="숙소 이름"
-                android:textSize="25dp"/>
+                android:textSize="25dp">
+
+            </TextView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="숙소 종류"
-                android:textSize="25dp"/>
+                android:textSize="25dp">
+
+            </TextView>
 
         </LinearLayout>
 
