@@ -13,12 +13,12 @@ import com.example.chaewonnolja.R
 import com.example.chaewonnolja.fragment.RestFragment
 import com.example.chaewonnolja.item.RestItem
 
-class RestViewAdapter( val context: Context) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
+class SearchResultAdapter(val context: Context) : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
 
     var datas = mutableListOf<RestItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_rest_view,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.item_search_result,parent,false)
         return ViewHolder(view)
     }
 
@@ -30,9 +30,9 @@ class RestViewAdapter( val context: Context) : RecyclerView.Adapter<RestViewAdap
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        private val restImage: ImageView = itemView.findViewById(R.id.restImage)
-        private val restCategory: TextView = itemView.findViewById(R.id.restCategory)
-        private val restName: TextView = itemView.findViewById(R.id.restName)
+        private val restImage: ImageView = itemView.findViewById(R.id.restImage_searchResult)
+        private val restCategory: TextView = itemView.findViewById(R.id.restCategory_searchResult)
+        private val restName: TextView = itemView.findViewById(R.id.restName_searchResult)
 
         fun bind(item: RestItem) {
             restName.text = item.restName

@@ -22,6 +22,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/reserving"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
@@ -29,13 +30,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="120dp"
+                android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginHorizontal="10dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:src="@drawable/rest"/>
 
         </LinearLayout>
         <LinearLayout
@@ -83,6 +85,7 @@
             android:textSize="30dp"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,6 +93,15 @@
         android:layout_marginVertical="10dp"
         android:orientation="horizontal">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_lastRest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_rest_view"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 

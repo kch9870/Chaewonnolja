@@ -1,5 +1,6 @@
 package com.example.chaewonnolja.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +13,6 @@ import com.example.chaewonnolja.R
 import kotlinx.android.synthetic.main.fragment_search.*
 import android.widget.CalendarView.OnDateChangeListener
 
-import androidx.annotation.NonNull
 
 
 class SearchFragment : Fragment() {
@@ -33,6 +33,7 @@ class SearchFragment : Fragment() {
 
         calendarSelect()    // 날짜 선택 이벤트
         peoplecountSpinner()    //인원 수 선택 이벤트
+        searchButton()  //검색 버튼
     }
 
 
@@ -61,7 +62,7 @@ class SearchFragment : Fragment() {
 
         //안에 item 을 클릭할 시
         peopleSpinner.onItemSelectedListener = object:
-            AdapterView.OnItemSelectedListener {
+            OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if(position != 0) {
                     Toast.makeText(activity, pclist[position], Toast.LENGTH_SHORT).show()
@@ -76,5 +77,24 @@ class SearchFragment : Fragment() {
             }
         }
 
+    }
+
+    private fun searchButton() {
+        search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                Log.d("search button","success")
+                //검색 버튼 클릭 시
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.view, SearchResultFragment())
+                    ?.commit()
+
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 }
