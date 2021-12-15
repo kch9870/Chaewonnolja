@@ -1,11 +1,11 @@
-package com.example.chaewonnolja.activity
+package com.example.chaewonnolja.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.`object`.MySharedPreferences
+import com.example.chaewonnolja.view.`object`.MySharedPreferences
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity :AppCompatActivity(){

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginHorizontal="30dp"
     android:orientation="vertical"
-    tools:context=".fragment.ReserveFragment">
+    tools:context=".view.fragment.ReserveFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

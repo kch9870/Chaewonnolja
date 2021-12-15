@@ -1,6 +1,5 @@
-package com.example.chaewonnolja.fragment
+package com.example.chaewonnolja.view.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -82,14 +81,22 @@ class SearchFragment : Fragment() {
     private fun searchButton() {
         search_view.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
+            //검색어와 db값 확인
             override fun onQueryTextSubmit(query: String?): Boolean {
 
-                Log.d("search button","success")
-                //검색 버튼 클릭 시
-                activity?.supportFragmentManager?.beginTransaction()
-                    ?.replace(R.id.view, SearchResultFragment())
-                    ?.commit()
+                //쿼리문 입력시 값과 맞는지 비교
+                if(query.toString()=="test"){
 
+                    Log.d("search button","success")
+                    //검색 버튼 클릭 시
+                    activity?.supportFragmentManager?.beginTransaction()
+                        ?.replace(R.id.view, SearchResultFragment())
+                        ?.commit()
+                }
+                else{
+                    Toast.makeText(activity, "잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show()
+                }
                 return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {

@@ -1,6 +1,5 @@
-package com.example.chaewonnolja.adaptor
+package com.example.chaewonnolja.view.adaptor
 
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.fragment.RestFragment
-import com.example.chaewonnolja.item.RestItem
+import com.example.chaewonnolja.view.item.RestItem
 
 class SearchResultAdapter(val context: Context) : RecyclerView.Adapter<SearchResultAdapter.ViewHolder>() {
 
@@ -40,7 +38,24 @@ class SearchResultAdapter(val context: Context) : RecyclerView.Adapter<SearchRes
 
             //bulid.gradle 에 Glide 라이브러리 추가
             Glide.with(itemView).load(item.restImage).into(restImage)
+
+            val pos = adapterPosition
+            if(pos!= RecyclerView.NO_POSITION)
+            {
+                itemView.setOnClickListener {
+                    listener?.onItemClick(itemView,item,pos)
+                }
+            }
+
         }
+
     }
 
+    interface OnItemClickListener{
+        fun onItemClick(v:View, data:RestItem , pos : Int)
+    }
+    private var listener : OnItemClickListener? = null
+    fun setOnItemClickListener(listener:OnItemClickListener) {
+        this.listener = listener
+    }
 }

@@ -1,17 +1,15 @@
-package com.example.chaewonnolja.fragment
+package com.example.chaewonnolja.view.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.adaptor.RestViewAdapter
-import com.example.chaewonnolja.adaptor.SearchResultAdapter
-import com.example.chaewonnolja.item.RestItem
-import kotlinx.android.synthetic.main.fragment_reserve.*
-import kotlinx.android.synthetic.main.fragment_rest.*
+import com.example.chaewonnolja.view.activity.RestInfoActivity
+import com.example.chaewonnolja.view.adaptor.SearchResultAdapter
+import com.example.chaewonnolja.view.item.RestItem
 import kotlinx.android.synthetic.main.fragment_search_result.*
 
 class SearchResultFragment: Fragment() {
@@ -44,6 +42,17 @@ class SearchResultFragment: Fragment() {
 
             searchResultAdapter.datas = datas
             searchResultAdapter.notifyDataSetChanged()
+
+            //item 클릭시
+            searchResultAdapter.setOnItemClickListener(object : SearchResultAdapter.OnItemClickListener{
+                override fun onItemClick(v: View, data: RestItem, pos : Int) {
+                    activity?.let{
+                        val intent = Intent(context, RestInfoActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+
+            })
 
         }
     }

@@ -36,6 +36,7 @@
             android:gravity="center"
             android:text="ID"/>
         <EditText
+            android:id="@+id/joinId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4.4" />
@@ -47,7 +48,6 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/passWord"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -55,6 +55,7 @@
             android:gravity="center"
             android:text="PASSWORD"/>
         <EditText
+            android:id="@+id/passWord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4.5"

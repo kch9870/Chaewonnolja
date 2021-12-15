@@ -1,4 +1,4 @@
-package com.example.chaewonnolja.fragment
+package com.example.chaewonnolja.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.activity.ReserveInfoActivity
-import com.example.chaewonnolja.adaptor.RestViewAdapter
-import com.example.chaewonnolja.databinding.ActivityReserveInfoBinding
-import com.example.chaewonnolja.item.RestItem
+import com.example.chaewonnolja.view.activity.ReserveInfoActivity
+import com.example.chaewonnolja.view.adaptor.RestViewAdapter
+import com.example.chaewonnolja.view.item.RestItem
 import kotlinx.android.synthetic.main.fragment_reserve.*
-import kotlinx.android.synthetic.main.fragment_rest.*
 
 class ReserveFragment : Fragment() {
 
@@ -55,6 +53,8 @@ class ReserveFragment : Fragment() {
 
             restViewAdapter.datas = datas
             restViewAdapter.notifyDataSetChanged()
+
+
 
         }
     }

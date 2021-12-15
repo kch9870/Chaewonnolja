@@ -1,4 +1,4 @@
-package com.example.chaewonnolja.`object`
+package com.example.chaewonnolja.view.`object`
 
 import android.content.Context
 import android.content.SharedPreferences

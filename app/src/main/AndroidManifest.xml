@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chaewonnolja">
         <activity
-            android:name=".activity.LoginActivity"
+            android:name="com.example.chaewonnolja.view.activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity">
+            android:name="com.example.chaewonnolja.view.activity.MainActivity">
         </activity>
         <activity
-            android:name=".activity.ReserveInfoActivity">
+            android:name="com.example.chaewonnolja.view.activity.ReserveInfoActivity">
+        </activity>
+        <activity
+            android:name="com.example.chaewonnolja.view.activity.RestInfoActivity">
         </activity>
     </application>
 
