@@ -28,8 +28,6 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
         //유저이름
-        userID.setText(MySharedPreferences.getUserId(this))
-
     }
 
 

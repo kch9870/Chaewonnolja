@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.activity.MainActivity">
-
-    </data>
     <FrameLayout
         android:id="@+id/view"
         android:layout_width="match_parent"
