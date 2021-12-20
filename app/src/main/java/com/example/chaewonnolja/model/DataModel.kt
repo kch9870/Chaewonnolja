@@ -1,15 +1,37 @@
 package com.example.chaewonnolja.model
 
+import com.google.gson.annotations.SerializedName
+
+/*변수명 response 잘 받기*/
+
 data class LoginModel(
+    @SerializedName("id")
     var id: String? = null,
+    @SerializedName("password")
     var password: String? = null
 )
+
 data class JoinModel(
-    var uid: Long = 0,
-    var uname: String? = null,
-    var id: Long = 0,
-    var password: String?=null
+    @SerializedName("id")
+    var id: String? = null,
+    @SerializedName("password")
+    var password: String?=null,
+    @SerializedName("nickName")
+    var nickName: String? = null
 )
-data class StringResult(
-    var result: String? = null
+data class JoinResult(
+    @SerializedName("state")
+    var state: Boolean?=false,
+    @SerializedName("msg")
+    var msg: String? = null,
+    @SerializedName("nickName")
+    var nickName: String? = null
+)
+data class LoginResult(
+    @SerializedName("state")
+    var state: Boolean?=false,
+    @SerializedName("msg")
+    var msg: String? = null,
+    @SerializedName("nickName")
+    var nickName: String? = null
 )

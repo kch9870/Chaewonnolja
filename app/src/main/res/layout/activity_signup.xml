@@ -17,7 +17,7 @@
             android:gravity="center"
             android:text="NAME"/>
         <EditText
-            android:id="@+id/userName"
+            android:id="@+id/joinnickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3" />
@@ -55,7 +55,7 @@
             android:gravity="center"
             android:text="PASSWORD"/>
         <EditText
-            android:id="@+id/passWord"
+            android:id="@+id/joinpassWord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="4.5"
@@ -67,6 +67,7 @@
         android:layout_weight="1"
         android:gravity="center">
         <Button
+            android:id="@+id/btnJoin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Join"/>

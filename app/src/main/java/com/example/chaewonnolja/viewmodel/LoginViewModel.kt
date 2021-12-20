@@ -7,9 +7,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chaewonnolja.model.LoginModel
+import com.example.chaewonnolja.model.NoljaClient
 import com.example.chaewonnolja.view.`object`.MySharedPreferences
 import com.example.chaewonnolja.view.activity.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class LoginViewModel:ViewModel() {
 
@@ -24,7 +28,6 @@ class LoginViewModel:ViewModel() {
     val loginchecktrue: LiveData<Event<Boolean>> = _loginchecktrue
     val logincheckfalse: LiveData<Event<Boolean>> = _logincheckfalse
     val sharedpreferencesfalse: LiveData<Event<Boolean>> = _sharedpreferencesfalse
-
 
     //로그인
     fun LoginCheck(editId: String, editPassword: String){
