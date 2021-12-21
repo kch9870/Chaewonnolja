@@ -23,37 +23,37 @@ class SearchResultFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRecycler()
+        //initRecycler()
     }
 
-    fun initRecycler() {
-        var searchResultAdapter = activity?.let { SearchResultAdapter(it) }!!
-        rv_searchResult.adapter = searchResultAdapter
-
-        //데이터 값 넣어보기 대충
-        datas.apply {
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-
-            searchResultAdapter.datas = datas
-            searchResultAdapter.notifyDataSetChanged()
-
-            //item 클릭시
-            searchResultAdapter.setOnItemClickListener(object : SearchResultAdapter.OnItemClickListener{
-                override fun onItemClick(v: View, data: RestItem, pos : Int) {
-                    activity?.let{
-                        val intent = Intent(context, RestInfoActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
-
-            })
-
-        }
-    }
+//    fun initRecycler() {
+//        var searchResultAdapter = activity?.let { SearchResultAdapter(it) }!!
+//        rv_searchResult.adapter = searchResultAdapter
+//
+//        //데이터 값 넣어보기 대충
+//        datas.apply {
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//
+//            searchResultAdapter.datas = datas
+//            searchResultAdapter.notifyDataSetChanged()
+//
+//            //item 클릭시
+//            searchResultAdapter.setOnItemClickListener(object : SearchResultAdapter.OnItemClickListener{
+//                override fun onItemClick(v: View, data: RestItem, pos : Int) {
+//                    activity?.let{
+//                        val intent = Intent(context, RestInfoActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                }
+//
+//            })
+//
+//        }
+//    }
 }

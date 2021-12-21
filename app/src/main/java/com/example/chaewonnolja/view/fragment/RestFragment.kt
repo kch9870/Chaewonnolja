@@ -45,42 +45,55 @@ class RestFragment : Fragment() {
             override fun onResponse(call: Call<getRestbyRegionResult>, response: Response<getRestbyRegionResult>) {
                 if (response.isSuccessful()) {
                     Log.d("Rest", response.body().toString())
-                    Log.d("Rest_test",response.body(1),to)
+                    Log.d("Rest_test", response.body()?.data?.get(0)?.title.toString())
+
+                    var cnt = response.body()!!.numOfRows?.toInt()
+
+                    Log.i("r_test", cnt.toString());
+                    Log.d("r_test", cnt.toString())
+
+                    datas.apply{
+                        if (cnt != null) {
+                            for(i in 0..cnt-1){
+                                add(RestItem(response.body()?.data?.get(0)?.title, response.body()?.data?.get(0)?.title, response.body()?.data?.get(0)?.title))
+                            }
+                            restViewAdapter.datas = datas
+                            restViewAdapter.notifyDataSetChanged()
+                        }
+                    }
                 }
             }
         })
-
-        initRecycler()
     }
 
-    //RecyclerView 불러오기
-    fun initRecycler() {
-        restViewAdapter = activity?.let { RestViewAdapter(it) }!!
-        rv_rest.adapter = restViewAdapter
-
-        //데이터 값 넣어보기 대충
-        datas.apply {
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-
-            restViewAdapter.datas = datas
-            restViewAdapter.notifyDataSetChanged()
-
-            restViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
-                override fun onItemClick(v: View, data: RestItem, pos : Int) {
-                    activity?.let{
-                        val intent = Intent(context, RestInfoActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
-
-            })
-
-        }
-    }
+//    //RecyclerView 불러오기
+//    fun initRecycler() {
+//        restViewAdapter = activity?.let { RestViewAdapter(it) }!!
+//        rv_rest.adapter = restViewAdapter
+//
+//        //데이터 값 넣어보기 대충
+//        datas.apply {
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//
+//            restViewAdapter.datas = datas
+//            restViewAdapter.notifyDataSetChanged()
+//
+//            restViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
+//                override fun onItemClick(v: View, data: RestItem, pos : Int) {
+//                    activity?.let{
+//                        val intent = Intent(context, RestInfoActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                }
+//
+//            })
+//
+//        }
+//    }
 }

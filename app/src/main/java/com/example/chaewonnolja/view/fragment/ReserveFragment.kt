@@ -24,7 +24,7 @@ class ReserveFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initRecycler()
+        //initRecycler()
         Reserving()
     }
     private fun Reserving(){
@@ -37,25 +37,25 @@ class ReserveFragment : Fragment() {
     }
 
 
-    private fun initRecycler() {
-        var restViewAdapter = activity?.let { RestViewAdapter(it) }!!
-        rv_lastRest.adapter = restViewAdapter
-
-        //데이터 값 넣어보기 대충
-        datas.apply {
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-
-            restViewAdapter.datas = datas
-            restViewAdapter.notifyDataSetChanged()
-
-
-
-        }
-    }
+//    private fun initRecycler() {
+//        var restViewAdapter = activity?.let { RestViewAdapter(it) }!!
+//        rv_lastRest.adapter = restViewAdapter
+//
+//        //데이터 값 넣어보기 대충
+//        datas.apply {
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
+//
+//            restViewAdapter.datas = datas
+//            restViewAdapter.notifyDataSetChanged()
+//
+//
+//
+//        }
+//    }
 }
