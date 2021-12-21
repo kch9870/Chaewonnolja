@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.chaewonnolja.R
 import com.example.chaewonnolja.model.JoinResult
-import com.example.chaewonnolja.model.LoginModel
 import com.example.chaewonnolja.model.LoginResult
 import com.example.chaewonnolja.model.NoljaClient
 import com.example.chaewonnolja.view.`object`.MySharedPreferences
@@ -39,7 +38,7 @@ class LoginActivity :AppCompatActivity(){
             //val data=LoginModel(editId.toString(),editPassword.toString())
 
             val noljaClient = NoljaClient()
-            noljaClient.service?.loginRequest(editId.text.toString(),editPassword.text.toString())?.enqueue(object: retrofit2.Callback<LoginResult> {
+            noljaClient.loginService?.loginRequest(editId.text.toString(),editPassword.text.toString())?.enqueue(object: retrofit2.Callback<LoginResult> {
                 override fun onFailure(call: Call<LoginResult>, t: Throwable) {
                     Log.e("Retrofit", t.toString())
                     Log.d("Retrofit", "fail")

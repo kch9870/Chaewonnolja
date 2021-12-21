@@ -1,13 +1,26 @@
 package com.example.chaewonnolja.model
 
-import com.example.chaewonnolja.model.service.NoljaService
+import com.example.chaewonnolja.model.service.LoginService
+import com.example.chaewonnolja.model.service.RestService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import java.util.concurrent.TimeUnit
+
 
 class NoljaClient {
-    var retrofit = Retrofit.Builder()    // Retrofit 인스턴스 생성하기
-        .baseUrl("http://3.144.155.186:3001/") // 반드시 '/'로 마무리
-        .addConverterFactory(GsonConverterFactory.create()) // JSON 변환기는 마지막에 등록하는 것이 좋음
+    var okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(1, TimeUnit.MINUTES)
+        .readTimeout(1, TimeUnit.MINUTES)
+        .writeTimeout(1, TimeUnit.MINUTES)
         .build()
-    var service = retrofit.create(NoljaService::class.java)    // Retrofit 인스턴스로 인터페이스 객체 구현
+
+    var retrofit = Retrofit.Builder()
+        .baseUrl("http://3.144.155.186:3001")
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    var loginService = retrofit.create(LoginService::class.java)
+    var restService = retrofit.create(RestService::class.java)
 }

@@ -6,7 +6,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.chaewonnolja.model.LoginModel
 import com.example.chaewonnolja.model.NoljaClient
 import com.example.chaewonnolja.view.`object`.MySharedPreferences
 import com.example.chaewonnolja.view.activity.MainActivity
@@ -16,10 +15,6 @@ import retrofit2.Response
 import javax.security.auth.callback.Callback
 
 class LoginViewModel:ViewModel() {
-
-    //textview에서 치는 값
-    var editId: String=""
-    var editPassword: String=""
 
     private val _loginchecktrue = MutableLiveData<Event<Boolean>>()
     private val _logincheckfalse = MutableLiveData<Event<Boolean>>()

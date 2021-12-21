@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.model.JoinModel
 import com.example.chaewonnolja.model.JoinResult
 import com.example.chaewonnolja.model.NoljaClient
 import com.example.chaewonnolja.view.`object`.MySharedPreferences
@@ -22,14 +21,10 @@ class SignuUpActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-//        var id=joinId.text.toString()
-//        var password=passWord.text.toString()
-//        var name=userName.text.toString()
-
         btnJoin.setOnClickListener{
             //Retrofit 통신
             val noljaClient = NoljaClient()
-            noljaClient.service?.joinRequest(joinId.text.toString(),joinpassWord.text.toString(),joinnickName.text.toString())?.enqueue(object: Callback<JoinResult>{
+            noljaClient.loginService?.joinRequest(joinId.text.toString(),joinpassWord.text.toString(),joinnickName.text.toString())?.enqueue(object: Callback<JoinResult>{
                 override fun onFailure(call: Call<JoinResult>, t: Throwable) {
                     Log.e("Retrofit", t.toString())
                     Log.d("Retrofit", "fail")
