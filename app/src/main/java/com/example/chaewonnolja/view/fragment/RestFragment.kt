@@ -59,7 +59,7 @@ class RestFragment : Fragment() {
 
     //RecyclerView 불러오기
     fun initRecycler() {
-        outRecyclerViewAdapter = activity?.let { OutRecyclerViewAdapter(it,) }!!
+        outRecyclerViewAdapter = activity?.let { OutRecyclerViewAdapter(it,item.itemList) }!!
         rv_rest.adapter = outRecyclerViewAdapter
 
         //데이터 값 넣어보기 대충
@@ -75,15 +75,15 @@ class RestFragment : Fragment() {
             outRecyclerViewAdapter.datas = datas
             outRecyclerViewAdapter.notifyDataSetChanged()
 
-            restViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
-                override fun onItemClick(v: View, data: RestItem, pos : Int) {
-                    activity?.let{
-                        val intent = Intent(context, RestInfoActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
-
-            })
+//            outRecyclerViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
+//                override fun onItemClick(v: View, data: RestItem, pos : Int) {
+//                    activity?.let{
+//                        val intent = Intent(context, RestInfoActivity::class.java)
+//                        startActivity(intent)
+//                    }
+//                }
+//
+//            })
 
         }
     }
