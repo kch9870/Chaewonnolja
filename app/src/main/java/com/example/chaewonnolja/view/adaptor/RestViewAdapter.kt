@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.chaewonnolja.R
 import com.example.chaewonnolja.view.item.RestItem
 
-class RestViewAdapter( val context: Context) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
+class RestViewAdapter(val context: Context, innerList: MutableList<RestItem>) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
 
     var datas = mutableListOf<RestItem>()
 

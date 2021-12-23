@@ -6,21 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.fragment.RestFragment">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="서울시"
-        android:textSize="25dp">
-    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_rest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        tools:listitem="@layout/item_rest_view"
+        tools:listitem="@layout/item_out_recycler_view"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-
     </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

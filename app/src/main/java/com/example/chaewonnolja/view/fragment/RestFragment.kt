@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chaewonnolja.R
 import com.example.chaewonnolja.model.NoljaClient
 import com.example.chaewonnolja.model.Repository.getRestbyRegionResult
 import com.example.chaewonnolja.view.activity.RestInfoActivity
+import com.example.chaewonnolja.view.adaptor.OutRecyclerViewAdapter
 import com.example.chaewonnolja.view.adaptor.RestViewAdapter
+import com.example.chaewonnolja.view.item.HighRestItem
 import com.example.chaewonnolja.view.item.RestItem
 import kotlinx.android.synthetic.main.fragment_rest.*
 import retrofit2.Call
@@ -19,8 +22,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RestFragment : Fragment() {
-    lateinit var restViewAdapter: RestViewAdapter
-    val datas = mutableListOf<RestItem>()
+    lateinit var outRecyclerViewAdapter: OutRecyclerViewAdapter
+    val datas = mutableListOf<HighRestItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,53 +50,94 @@ class RestFragment : Fragment() {
                     Log.d("Rest", response.body().toString())
                     Log.d("Rest_test", response.body()?.data?.get(0)?.title.toString())
 
-                    var cnt = response.body()!!.numOfRows?.toInt()
-
-                    Log.i("r_test", cnt.toString());
-                    Log.d("r_test", cnt.toString())
-
-                    datas.apply{
-                        if (cnt != null) {
-                            for(i in 0..cnt-1){
-                                add(RestItem(response.body()?.data?.get(0)?.title, response.body()?.data?.get(0)?.title, response.body()?.data?.get(0)?.title))
-                            }
-                            restViewAdapter.datas = datas
-                            restViewAdapter.notifyDataSetChanged()
-                        }
-                    }
                 }
             }
         })
+
+        setUpRecyclerView()
     }
 
-//    //RecyclerView 불러오기
-//    fun initRecycler() {
-//        restViewAdapter = activity?.let { RestViewAdapter(it) }!!
-//        rv_rest.adapter = restViewAdapter
-//
-//        //데이터 값 넣어보기 대충
-//        datas.apply {
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//            add(RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"))
-//
-//            restViewAdapter.datas = datas
-//            restViewAdapter.notifyDataSetChanged()
-//
-//            restViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
-//                override fun onItemClick(v: View, data: RestItem, pos : Int) {
-//                    activity?.let{
-//                        val intent = Intent(context, RestInfoActivity::class.java)
-//                        startActivity(intent)
-//                    }
+    //RecyclerView 불러오기
+    fun initRecycler() {
+        outRecyclerViewAdapter = activity?.let { OutRecyclerViewAdapter(it,) }!!
+        rv_rest.adapter = outRecyclerViewAdapter
+
+        //데이터 값 넣어보기 대충
+        datas.apply {
+            add(HighRestItem("서울시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ))
+
+            outRecyclerViewAdapter.datas = datas
+            outRecyclerViewAdapter.notifyDataSetChanged()
+
+            restViewAdapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
+                override fun onItemClick(v: View, data: RestItem, pos : Int) {
+                    activity?.let{
+                        val intent = Intent(context, RestInfoActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+
+            })
+
+        }
+    }
+
+    private fun setUpRecyclerView() {
+        var itemList = mutableListOf(
+            HighRestItem("서울시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ),
+            HighRestItem("강릉시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ),
+            HighRestItem("부산시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ),
+            HighRestItem("광주시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ),
+            HighRestItem("충주시", mutableListOf(
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔"),
+                RestItem(restImage = R.drawable.rest, restName = "Mary Hotel", restCategory = "호텔")
+            )
+            ),
+        )
+
+        rv_rest.adapter = OutRecyclerViewAdapter(requireContext(), itemList)
+        rv_rest.layoutManager = LinearLayoutManager(requireContext())
+
+//        rv_rest.adapter.setOnItemClickListener(object : RestViewAdapter.OnItemClickListener{
+//            override fun onItemClick(v: View, data: RestItem, pos : Int) {
+//                activity?.let{
+//                    val intent = Intent(context, RestInfoActivity::class.java)
+//                    startActivity(intent)
 //                }
+//            }
 //
-//            })
-//
-//        }
-//    }
+//        })
+    }
 }
