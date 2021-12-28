@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:orientation="vertical">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <ImageView
-        android:id="@+id/restImage"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:src="@drawable/rest">
+    <data>
+        <variable
+            name="model"
+            type="com.example.chaewonnolja.view.item.RestItem" />
+    </data>
 
-    </ImageView>
-    <TextView
-        android:id="@+id/restName"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="숙소 이름">
+        android:layout_height="wrap_content">
 
-    </TextView>
-    <TextView
-        android:id="@+id/restCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="숙소 종류">
+        <ImageView
+            android:id="@+id/restImage"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:src="@{model.restImage}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-    </TextView>
-    </LinearLayout>
-</LinearLayout>
+        </ImageView>
+        <TextView
+            android:id="@+id/restName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{model.restName}"
+            app:layout_constraintStart_toEndOf="@id/restImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" >
+
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

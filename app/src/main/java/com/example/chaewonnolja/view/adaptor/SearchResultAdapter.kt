@@ -34,8 +34,6 @@ class SearchResultAdapter(val context: Context) : RecyclerView.Adapter<SearchRes
 
         fun bind(item: RestItem) {
             restName.text = item.restName
-            restCategory.text = item.restCategory
-
             //bulid.gradle 에 Glide 라이브러리 추가
             Glide.with(itemView).load(item.restImage).into(restImage)
 
