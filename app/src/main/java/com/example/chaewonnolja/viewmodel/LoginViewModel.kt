@@ -16,21 +16,21 @@ import javax.security.auth.callback.Callback
 
 class LoginViewModel:ViewModel() {
 
-    private val _loginchecktrue = MutableLiveData<Event<Boolean>>()
-    private val _logincheckfalse = MutableLiveData<Event<Boolean>>()
-    private val _sharedpreferencesfalse = MutableLiveData<Event<Boolean>>()
+    private val _loginCheckTrue = MutableLiveData<Event<Boolean>>()
+    private val _loginCheckFalse = MutableLiveData<Event<Boolean>>()
+    private val _sharedPreferencesFalse = MutableLiveData<Event<Boolean>>()
 
-    val loginchecktrue: LiveData<Event<Boolean>> = _loginchecktrue
-    val logincheckfalse: LiveData<Event<Boolean>> = _logincheckfalse
-    val sharedpreferencesfalse: LiveData<Event<Boolean>> = _sharedpreferencesfalse
+    val loginCheckTrue: LiveData<Event<Boolean>> = _loginCheckTrue
+    val loginCheckFalse: LiveData<Event<Boolean>> = _loginCheckFalse
+    val sharedPreferencesFalse: LiveData<Event<Boolean>> = _sharedPreferencesFalse
 
     //로그인
     fun LoginCheck(editId: String, editPassword: String){
         if(editId.isNullOrBlank() || editPassword.isNullOrBlank()) {
-            _loginchecktrue.value = Event(true)
+            _loginCheckTrue.value = Event(true)
         }
         else {
-            _logincheckfalse.value = Event(true)
+            _loginCheckFalse.value = Event(true)
         }
     }
 
@@ -41,7 +41,7 @@ class LoginViewModel:ViewModel() {
             LoginCheck(editId,editPassword)
         }
         else { // SharedPreferences 안에 값이 저장되어 있을 때 -> MainActivity로 이동
-            _sharedpreferencesfalse.value=Event(true)
+            _sharedPreferencesFalse.value=Event(true)
         }
     }
 }

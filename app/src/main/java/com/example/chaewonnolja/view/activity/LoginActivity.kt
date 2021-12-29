@@ -58,12 +58,12 @@ class LoginActivity :AppCompatActivity(){
 
         /*ViewModel*/
 
-        LoginViewModel.loginchecktrue.observe(this, Observer {
+        LoginViewModel.loginCheckTrue.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, "아이디와 비밀번호를 확인하세요", Toast.LENGTH_SHORT).show()
             }
         })
-        LoginViewModel.logincheckfalse.observe(this, Observer {
+        LoginViewModel.loginCheckFalse.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 MySharedPreferences.setUserId(this, editId.text.toString())
                 MySharedPreferences.setUserPass(this, editPassword.text.toString())
@@ -73,7 +73,7 @@ class LoginActivity :AppCompatActivity(){
                 finish()
             }
         })
-        LoginViewModel.sharedpreferencesfalse.observe(this, Observer {
+        LoginViewModel.sharedPreferencesFalse.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, "${MySharedPreferences.getUserId(this)}님 자동 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
