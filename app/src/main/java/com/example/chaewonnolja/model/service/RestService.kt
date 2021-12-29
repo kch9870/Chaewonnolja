@@ -11,11 +11,10 @@ import retrofit2.http.GET
 
 interface RestService {
 
-    @FormUrlEncoded
-    @POST("/rest/region")
+    @GET("/rest/region")
     fun getRestRegion(
-        @Field("areaName") areaName: String,
-        @Field("numOfRows") numOfRows: String,
-        @Field("pageNo") pageNo: String
+        @Query("areaName") areaName: String,
+        @Query("numOfRows") numOfRows: String,
+        @Query("pageNo") pageNo: String
     ): Call<getRestbyRegionResult>
 }
