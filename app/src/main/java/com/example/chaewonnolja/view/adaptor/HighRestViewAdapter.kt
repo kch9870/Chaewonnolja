@@ -28,7 +28,7 @@ class HighRestViewAdapter(val context: Context, val itemList: MutableList<HighRe
         fun bind(item: HighRestItem) {
             binding.model = item
 
-            binding.innerRecyclerview.adapter = RestViewAdapter(context,item.rList)
+            binding.innerRecyclerview.adapter = RestViewAdapter(context,item.innerList)
             binding.innerRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
     }

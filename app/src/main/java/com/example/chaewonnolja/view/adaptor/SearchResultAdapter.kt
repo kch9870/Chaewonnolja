@@ -29,7 +29,6 @@ class SearchResultAdapter(val context: Context) : RecyclerView.Adapter<SearchRes
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val restImage: ImageView = itemView.findViewById(R.id.restImage_searchResult)
-        private val restCategory: TextView = itemView.findViewById(R.id.restCategory_searchResult)
         private val restName: TextView = itemView.findViewById(R.id.restName_searchResult)
 
         fun bind(item: RestItem) {

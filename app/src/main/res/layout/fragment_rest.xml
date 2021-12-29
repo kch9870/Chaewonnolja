@@ -12,12 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-<<<<<<< HEAD
-        tools:listitem="@layout/item_out_recycler_view"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
     </androidx.recyclerview.widget.RecyclerView>
-=======
-        android:scrollbars="none"/>
->>>>>>> fed3ceba352d429905863b04ffd49f092bc840a5
 
 </LinearLayout>

@@ -33,7 +33,6 @@ class LoginActivity :AppCompatActivity(){
                 editId.text.toString(), editPassword.text.toString()
             )
 
-
             //로그인 Retrofit 통신
             //val data=LoginModel(editId.toString(),editPassword.toString())
 

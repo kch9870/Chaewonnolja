@@ -5,21 +5,19 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chaewonnolja.databinding.ItemRestViewBinding
 import com.example.chaewonnolja.view.item.RestItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.Target
-
-<<<<<<< HEAD
-class RestViewAdapter(val context: Context, innerList: MutableList<RestItem>) : RecyclerView.Adapter<RestViewAdapter.ViewHolder>() {
-=======
->>>>>>> fed3ceba352d429905863b04ffd49f092bc840a5
+import com.example.chaewonnolja.R
 
 class RestViewAdapter(context: Context, val itemList: MutableList<RestItem>): RecyclerView.Adapter<RestViewAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val binding = ItemRestViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemRestViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
     }
 
@@ -36,9 +34,11 @@ class RestViewAdapter(context: Context, val itemList: MutableList<RestItem>): Re
         fun bind(item: RestItem) {
             binding.model = item
 
-            val imageUrl = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory&fname=https://k.kakaocdn.net/dn/EShJF/btquPLT192D/SRxSvXqcWjHRTju3kHcOQK/img.png"
-            //Glide.with(itemView).load(imageUrl).into(binding.model.restImage)
+            val image: ImageView = itemView.findViewById(R.id.restImage)
+            val imageUrl = item.restImage
+
+            Glide.with(itemView).load(imageUrl).into(image)
+
         }
     }
-
 }
