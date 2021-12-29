@@ -33,7 +33,7 @@ class RestViewAdapter(context: Context, val itemList: MutableList<RestItem>): Re
             binding.model = item
 
             val imageUrl = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory&fname=https://k.kakaocdn.net/dn/EShJF/btquPLT192D/SRxSvXqcWjHRTju3kHcOQK/img.png"
-            Glide.with(itemView).load(imageUrl).into(binding.model.restImage)
+            //Glide.with(itemView).load(imageUrl).into(binding.model.restImage)
         }
     }
 

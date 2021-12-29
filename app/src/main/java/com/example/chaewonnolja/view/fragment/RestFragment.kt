@@ -63,6 +63,7 @@ class RestFragment : Fragment() {
     fun initRecycler(data: List<getData>) {
 
 
+        //for문 처리 어떻게 해야될지 고민... 함수로 빼보자
         itemList = mutableListOf(
             HighRestItem("서울시", mutableListOf(
                 RestItem(data.get(0).firstimage.toString(),data.get(0).title.toString()),
