@@ -18,6 +18,7 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    val trans =supportFragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -29,9 +30,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation()
 
         //메인 화면 초기화
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.view, RestFragment())
-            .commit()
+        trans.replace(R.id.view, RestFragment())
+        trans.commit()
 
         //유저이름
 
@@ -41,22 +41,19 @@ class MainActivity : AppCompatActivity() {
     private fun bottomNavigation(){
         binding.btnRest.setOnClickListener {
             // view 에 불러오는 fragment 설정
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.view, RestFragment())
-                .commit()
+            trans.replace(R.id.view, RestFragment())
+            trans.commit()
 
         }
 
         binding.btnSearch.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.view, SearchFragment())
-                .commit()
+            trans.replace(R.id.view, SearchFragment())
+            trans.commit()
         }
 
         binding.btnReserve.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.view, ReserveFragment())
-                .commit()
+            trans.replace(R.id.view, ReserveFragment())
+            trans.commit()
         }
     }
 }
