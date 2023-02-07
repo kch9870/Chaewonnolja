@@ -1,7 +1,5 @@
-package com.example.chaewonnolja.model
+package com.example.chaewonnolja.model.service
 
-import com.example.chaewonnolja.model.service.LoginService
-import com.example.chaewonnolja.model.service.RestService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import okhttp3.OkHttpClient
@@ -16,7 +14,7 @@ class NoljaClient {
         .build()
 
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://3.144.155.186:3001")
+        .baseUrl("")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -58,9 +59,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    //네트워크 통신 로그를 보기위한 interceptor를 추가
+    // 네트워크 통신 로그를 보기위한 interceptor를 추가
     implementation 'com.squareup.okhttp3:okhttp:4.2.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 }
 
 

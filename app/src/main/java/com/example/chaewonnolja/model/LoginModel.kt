@@ -1,4 +1,4 @@
-package com.example.chaewonnolja.model
+package com.example.chaewonnolja.model.repository.model
 
 import com.google.gson.annotations.SerializedName
 

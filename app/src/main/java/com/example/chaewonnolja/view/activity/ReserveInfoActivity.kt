@@ -10,7 +10,6 @@ class ReserveInfoActivity : AppCompatActivity() {
         val binding2 = ActivityReserveInfoBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding2.root)
-
     }
 
 

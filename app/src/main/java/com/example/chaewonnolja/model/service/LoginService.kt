@@ -1,11 +1,9 @@
 package com.example.chaewonnolja.model.service
 
-import android.util.JsonWriter
-import com.example.chaewonnolja.model.JoinResult
-import com.example.chaewonnolja.model.LoginResult
+import com.example.chaewonnolja.model.repository.model.JoinResult
+import com.example.chaewonnolja.model.repository.model.LoginResult
 import retrofit2.Call
 import retrofit2.http.*
-import retrofit2.http.GET
 
 
 interface LoginService {

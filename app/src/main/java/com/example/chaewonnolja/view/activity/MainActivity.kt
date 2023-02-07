@@ -2,23 +2,15 @@ package com.example.chaewonnolja.view.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.chaewonnolja.R
-import com.example.chaewonnolja.view.`object`.MySharedPreferences
 import com.example.chaewonnolja.databinding.ActivityMainBinding
-import com.example.chaewonnolja.model.NoljaClient
-import com.example.chaewonnolja.model.Repository.getRestbyRegionResult
 import com.example.chaewonnolja.view.fragment.ReserveFragment
 import com.example.chaewonnolja.view.fragment.RestFragment
 import com.example.chaewonnolja.view.fragment.SearchFragment
-import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    val trans =supportFragmentManager.beginTransaction()
+    private val trans =supportFragmentManager.beginTransaction()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -34,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         trans.commit()
 
         //유저이름
-
     }
 
 
